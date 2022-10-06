@@ -1,23 +1,4 @@
-export default {
-  'env': {
-    'browser': true,
-    'es2021': true,
-    'node': true,
-  },
-  'extends': [
-    'plugin:react/recommended',
-    'google',
-  ],
-  'overrides': [
-  ],
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'sourceType': 'module',
-  },
-  'plugins': [
-    'react',
-  ],
-  'rules': {
-    "require-jsdoc": 0,
-  },
+module.exports = {
+  root: true,
+  extends: '@react-native-community',
 };
