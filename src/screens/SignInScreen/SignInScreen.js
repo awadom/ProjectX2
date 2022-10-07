@@ -1,5 +1,5 @@
-import React from 'react';
-import {View, Text, Image, StyleSheet, useWindowDimensions} from 'react-native';
+import React from 'react'; //import react
+import {View, Text, Image, StyleSheet, useWindowDimensions} from 'react-native'; //import view, text, image, stylesheet, usewindowdimensions from from the react-native library
 import Logo from '../../../assets/images/ProjectX-Logo.png';
 import CustomInput from '../../components/CustomInput';
 
@@ -14,6 +14,7 @@ const SignInScreen = () => {
         resizeMode="contain" 
       />
 
+      <CustomInput />
       <CustomInput />
     </View>
   )
