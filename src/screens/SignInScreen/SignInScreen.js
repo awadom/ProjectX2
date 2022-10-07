@@ -1,9 +1,13 @@
-import React from 'react'; //import react
-import {View, Text, Image, StyleSheet, useWindowDimensions} from 'react-native'; //import view, text, image, stylesheet, usewindowdimensions from from the react-native library
+import React, {useState} from 'react'; 
+import {View, Text, Image, StyleSheet, useWindowDimensions} from 'react-native'; 
 import Logo from '../../../assets/images/ProjectX-Logo.png';
 import CustomInput from '../../components/CustomInput';
+import CustomButton from '../../components/CustomButton';
 
 const SignInScreen = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
   const {height} = useWindowDimensions();
 
   return (
@@ -14,8 +18,20 @@ const SignInScreen = () => {
         resizeMode="contain" 
       />
 
-      <CustomInput />
-      <CustomInput />
+      <CustomInput 
+        placeholder = "Username" 
+        value={username} 
+        setValue={setUsername} 
+      />
+      <CustomInput 
+        placeholder="Password" 
+        value={password} 
+        setValue={setPassword} 
+        secureTextEntry
+      />
+      <CustomButton
+      
+      />
     </View>
   )
 }
