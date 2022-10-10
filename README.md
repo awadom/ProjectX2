@@ -2,5 +2,7 @@
 working title for opportunity app
 
 Completed screens
-![Screenshot](assets/images/SignInScreen.png)
-![Screenshot](assets/images/SignUpScreen.png)
+
+        Sign In            |          Sign Up
+:-------------------------:|:-------------------------:
+![](assets/images/SignInScreen.png)  |  ![](assets/images/SignUpScreen.png)
