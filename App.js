@@ -2,11 +2,12 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import SignInScreen from './src/screens/SignInScreen/SignInScreen';
 import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
+import ConfirmEmailScreen from './src/screens/ConfirmEmailScreen';
 
 const App = () => {
   return (
     <SafeAreaView style={styles.root}>
-      <SignUpScreen />
+      <ConfirmEmailScreen />
     </SafeAreaView>
   );
 };
