@@ -33,6 +33,15 @@ const SignUpScreen = () => {
   const onSignUpPressed = () => {
     console.warn("SignUp");
   }
+
+  const onTermsOfUsePressed = () => {
+    console.warn("TOS");
+  }
+
+  const onPrivacyPolicyPressed = () => {
+    console.warn("Privacy Policy");
+  }
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.root}>
@@ -62,7 +71,7 @@ const SignUpScreen = () => {
         />
         <CustomButton text = "Register" onPress={onRegisterPressed}/>
         <Text style={styles.text}>
-          By registering, you confirm that you accept our Terms of Use and Privacy Policy.
+          By registering, you confirm that you accept our <Text style = {styles.link} onPress={onTermsOfUsePressed}>Terms of Use</Text> and <Text style = {styles.link} onPress={onPrivacyPolicyPressed}>Privacy Policy</Text>.
         </Text>
 
         <CustomButton 
@@ -99,17 +108,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 20,
   },
-  logo: {
-    width: '100%',
-    maxWidth: 500,
-    maxHeight: 300,
-  },
   title:{
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: 'white',
     margin: 10,
-  }
+  },
+  text: {
+    color: 'white',
+    marginVertical: 10,
+  },
+  link: {
+    color: '#ff9e3e',
+  },
 });
 
 export default SignUpScreen
