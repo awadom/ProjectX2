@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {
   View,
-  Text,
   Image,
   StyleSheet,
   useWindowDimensions,
@@ -10,7 +9,7 @@ import {
 import Logo from '../../../assets/images/ProjectX-Logo.png';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
-import {Scope} from '@babel/traverse';
+import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 
 const SignInScreen = () => {
   const [username, setUsername] = useState('');
@@ -24,18 +23,6 @@ const SignInScreen = () => {
 
   const onForgotPasswordPressed = () => {
     console.warn('Forgot Password?');
-  };
-
-  const onSignInGoogle = () => {
-    console.warn('Google');
-  };
-
-  const onSignInFacebook = () => {
-    console.warn('Facebook');
-  };
-
-  const onSignInApple = () => {
-    console.warn('Apple');
   };
 
   const onSignUpPressed = () => {
@@ -67,26 +54,7 @@ const SignInScreen = () => {
           onPress={onForgotPasswordPressed}
           type="TERTIARY"
         />
-
-        <CustomButton
-          text="Sign In with Google"
-          onPress={onSignInGoogle}
-          bgColor="#FAE9EA"
-          fgColor="#DD4D44"
-        />
-        <CustomButton
-          text="Sign In with Facebook"
-          onPress={onSignInFacebook}
-          bgColor="#E7EAF4"
-          fgColor="#4765A9"
-        />
-        <CustomButton
-          text="Sign In with Apple"
-          onPress={onSignInApple}
-          bgColor="#e3e3e3"
-          fgColor="#363636"
-        />
-
+        <SocialSignInButtons />
         <CustomButton
           text="Don't have an account? Create one"
           onPress={onSignUpPressed}
