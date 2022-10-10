@@ -3,6 +3,7 @@ working title for opportunity app
 
 Completed screens
 
-        Sign In            |          Sign Up
-:-------------------------:|:-------------------------:
-![](assets/images/SignInScreen.png)  |  ![](assets/images/SignUpScreen.png)
+<p float="left">
+  <img src="assets/images/SignInScreen.png" width="100" />
+  <img src="assets/images/SignUpScreen.png" /> 
+</p>
