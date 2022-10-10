@@ -1,18 +1,17 @@
 import React, {useState} from 'react'; 
-import {View, Text, Image, StyleSheet, useWindowDimensions, ScrollView} from 'react-native'; 
-import Logo from '../../../assets/images/ProjectX-Logo.png';
+import {View, Text, StyleSheet, ScrollView} from 'react-native'; 
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import { Scope } from '@babel/traverse';
 
 const SignUpScreen = () => {
   const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordRepeat, setPasswordRepeat] = useState('');
 
-  const {height} = useWindowDimensions();
-
-  const onSignInPressed = () => {
-    console.warn("Sign in");
+  const onRegisterPressed = () => {
+    console.warn("Register");
   }
 
   const onForgotPasswordPressed = () => {
@@ -39,11 +38,15 @@ const SignUpScreen = () => {
       <View style={styles.root}>
         <Text style={styles.title}>Create an account</Text>
         
-
         <CustomInput 
           placeholder = "Username" 
           value={username} 
           setValue={setUsername} 
+        />
+          <CustomInput 
+          placeholder = "Email" 
+          value={email} 
+          setValue={setEmail} 
         />
         <CustomInput 
           placeholder="Password" 
@@ -51,12 +54,16 @@ const SignUpScreen = () => {
           setValue={setPassword} 
           secureTextEntry
         />
-        <CustomButton text = "Sign In" onPress={onSignInPressed}/>
-        <CustomButton 
-          text = "Forgot Password?" 
-          onPress={onForgotPasswordPressed} 
-          type="TERTIARY" 
+          <CustomInput 
+          placeholder="Repeat Password" 
+          value={passwordRepeat} 
+          setValue={setPasswordRepeat} 
+          secureTextEntry
         />
+        <CustomButton text = "Register" onPress={onRegisterPressed}/>
+        <Text style={styles.text}>
+          By registering, you confirm that you accept our Terms of Use and Privacy Policy.
+        </Text>
 
         <CustomButton 
           text = "Sign In with Google" 
