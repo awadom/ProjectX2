@@ -1,10 +1,5 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
-import SignInScreen from './src/screens/SignInScreen/SignInScreen';
-import SignUpScreen from './src/screens/SignUpScreen/SignUpScreen';
-import ConfirmEmailScreen from './src/screens/ConfirmEmailScreen';
-import ForgotPasswordScreen from './src/screens/ForgotPasswordScreen';
-import NewPasswordScreen from './src/screens/NewPasswordScreen/NewPasswordScreen';
 import Navigation from './src/navigation';
 
 const App = () => {

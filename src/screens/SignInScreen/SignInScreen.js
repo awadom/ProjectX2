@@ -10,23 +10,26 @@ import Logo from '../../../assets/images/ProjectX-Logo.png';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
+import {useNavigation} from '@react-navigation/native';
 
 const SignInScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const {height} = useWindowDimensions();
+  const navigation = useNavigation();
 
   const onSignInPressed = () => {
-    console.warn('Sign in');
+    //validate user
+    navigation.navigate('Home');
   };
 
   const onForgotPasswordPressed = () => {
-    console.warn('Forgot Password?');
+    navigation.navigate('ForgotPassword');
   };
 
   const onSignUpPressed = () => {
-    console.warn('SignUp');
+    navigation.navigate('SignUp');
   };
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
