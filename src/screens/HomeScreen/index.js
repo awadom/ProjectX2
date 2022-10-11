@@ -6,10 +6,20 @@ import {useNavigation} from '@react-navigation/native';
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const onSignInPressed = () => {
+    navigation.navigate('SignIn');
+  };
   return (
     <View>
-      <Text style={{fontSize: 24, alignSelf: 'center'}}>Home, sweet home</Text>
-      <CustomButton text="Sign In" onPress={navigation.navigate('SignIn')} />
+      <Text
+        style={{
+          fontSize: 24,
+          alignSelf: 'center',
+          marginBottom: 300,
+        }}>
+        Home, sweet home
+      </Text>
+      <CustomButton text="Back to Sign In" onPress={onSignInPressed} />
     </View>
   );
 };
