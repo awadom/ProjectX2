@@ -4,8 +4,12 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons';
 import {useNavigation} from '@react-navigation/native';
+import {authentication} from '../../../firebase/firebase-config';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
 
 const SignUpScreen = () => {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +18,14 @@ const SignUpScreen = () => {
   const navigation = useNavigation();
 
   const onRegisterPressed = () => {
-    navigation.navigate('ConfirmEmail');
+    createUserWithEmailAndPassword(authentication, email, password)
+      .then(re => {
+        console.log(re);
+        navigation.navigate('ConfirmEmail');
+      })
+      .catch(re => {
+        console.log(re);
+      });
   };
 
   const onSignInPressed = () => {
@@ -36,12 +47,14 @@ const SignUpScreen = () => {
 
         <CustomInput
           placeholder="Username"
+          onChangeText={text => setUsername(text)}
           value={username}
           setValue={setUsername}
         />
         <CustomInput placeholder="Email" value={email} setValue={setEmail} />
         <CustomInput
           placeholder="Password"
+          onChangeText={text => setPassword(text)}
           value={password}
           setValue={setPassword}
           secureTextEntry
