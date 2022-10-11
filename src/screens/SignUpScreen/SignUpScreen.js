@@ -21,7 +21,8 @@ const SignUpScreen = () => {
     createUserWithEmailAndPassword(authentication, email, password)
       .then(re => {
         console.log(re);
-        navigation.navigate('ConfirmEmail');
+        setIsSignedIn(true);
+        navigation.navigate('SignIn');
       })
       .catch(re => {
         console.log(re);

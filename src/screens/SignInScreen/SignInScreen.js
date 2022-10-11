@@ -11,17 +11,28 @@ import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons/SocialSignInButtons';
 import {useNavigation} from '@react-navigation/native';
+import {authentication} from '../../../firebase/firebase-config';
+import {signInWithEmailAndPassword, signOut} from 'firebase/auth';
 
 const SignInScreen = () => {
-  const [username, setUsername] = useState('');
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const {height} = useWindowDimensions();
   const navigation = useNavigation();
 
   const onSignInPressed = () => {
-    //validate user
-    navigation.navigate('Home');
+    signInWithEmailAndPassword(authentication, email, password)
+      .then(re => {
+        console.log(re);
+        setIsSignedIn(true);
+        navigation.navigate('Home');
+      })
+      .catch(re => {
+        console.log(re);
+      });
   };
 
   const onForgotPasswordPressed = () => {
@@ -31,6 +42,17 @@ const SignInScreen = () => {
   const onSignUpPressed = () => {
     navigation.navigate('SignUp');
   };
+
+  const onSignOutPressed = () => {
+    signOut(authentication)
+      .then(re => {
+        setIsSignedIn(false);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.root}>
@@ -40,18 +62,18 @@ const SignInScreen = () => {
           resizeMode="contain"
         />
 
-        <CustomInput
-          placeholder="Username"
-          value={username}
-          setValue={setUsername}
-        />
+        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
         <CustomInput
           placeholder="Password"
           value={password}
           setValue={setPassword}
           secureTextEntry
         />
-        <CustomButton text="Sign In" onPress={onSignInPressed} />
+        {isSignedIn === true ? (
+          <CustomButton text="Sign Out" onPress={onSignOutPressed} />
+        ) : (
+          <CustomButton text="Sign In" onPress={onSignInPressed} />
+        )}
         <CustomButton
           text="Forgot Password?"
           onPress={onForgotPasswordPressed}
