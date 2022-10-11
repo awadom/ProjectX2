@@ -10,9 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-native-firebase/app": "^15.7.0",
-    "@react-native-firebase/auth": "^15.7.0",
-    "@react-native-firebase/installations": "^15.7.0",
+    "@react-native-firebase/app": "^12.7.4",
+    "@react-native-firebase/auth": "^12.7.4",
+    "@react-native-firebase/installations": "^12.7.4",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
     "firebase": "^9.11.0",
